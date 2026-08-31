@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Team Divisions | Red X Student Esports Club</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Team Individual CSS -->
+    <link rel="stylesheet" href="team.css">
+
+    <!-- Website favicon -->
+    <link rel="icon" type="image/png" href="img/icon-title.png">
+
+    <!--Font-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Teko:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="member2">
+    <div id="member2_team">
+        <!-- ================= NAVBAR ================= -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/icon.png" alt="Red X Logo" class="navbar-logo">
+                    <span class="brand-name">
+                        RED X
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <!-- HOME -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <!-- ABOUT US -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+
+                        <!-- CLUB DROPDOWN (ACTIVE) -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                                Club
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="committee.html">Committee</a></li>
+                                <li><a class="dropdown-item active" href="team.html">Team</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- ESPORTS DROPDOWN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Esports
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="achievement.html">Achievement</a></li>
+                                <li><a class="dropdown-item" href="event.html">Events</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- COMMUNITY DROPDOWN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Community
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="registration.html">Registration</a></li>
+                                <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- THEME BUTTON -->
+                        <li class="nav-item ms-lg-3">
+                            <button id="themeButton" class="btn btn-outline-danger">
+                                <i class="bi bi-sun-fill"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- ================= HERO ================= -->
+        <section class="about-hero section-padding" style="padding-top: 120px;">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">DIVISIONS & ROSTER</p>
+                    <h1>GAME DIVISIONS</h1>
+                    <p>Explore our student rosters competing across 4 major esports titles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAVORITE SELECTION & DIVISIONS ================= -->
+        <section class="section-padding pt-0">
+            <div class="container">
+
+                <!-- LocalStorage Favorite Game Division Card -->
+                <div class="about-card mb-4 text-start">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div>
+                            <p class="section-label mb-1">LOCALSTORAGE SAVED PREFERENCE</p>
+                            <h4 class="mb-0">Your Favorite Division: <span id="favDivisionText" class="text-danger">None
+                                    selected yet</span></h4>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                Set Favorite Game
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item set-division-btn" href="#"
+                                        data-division="VALORANT Division">VALORANT Division</a></li>
+                                <li><a class="dropdown-item set-division-btn" href="#"
+                                        data-division="Mobile Legends (MLBB) Division">Mobile Legends Division</a></li>
+                                <li><a class="dropdown-item set-division-btn" href="#"
+                                        data-division="League of Legends Division">League of Legends Division</a></li>
+                                <li><a class="dropdown-item set-division-btn" href="#"
+                                        data-division="PUBG Mobile Division">PUBG Mobile Division</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Category Tabs -->
+                <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="val-tab" data-bs-toggle="pill" data-bs-target="#val-content"
+                            type="button" role="tab">
+                            <i class="bi bi-crosshair me-1"></i> VALORANT Division
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="mlbb-tab" data-bs-toggle="pill" data-bs-target="#mlbb-content"
+                            type="button" role="tab">
+                            <i class="bi bi-controller me-1"></i> Mobile Legends Division
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="lol-tab" data-bs-toggle="pill" data-bs-target="#lol-content"
+                            type="button" role="tab">
+                            <i class="bi bi-trophy me-1"></i> League of Legends Division
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pubg-tab" data-bs-toggle="pill" data-bs-target="#pubg-content"
+                            type="button" role="tab">
+                            <i class="bi bi-lightning-charge me-1"></i> PUBG Mobile Division
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Contents for Each Game Division -->
+                <div class="tab-content" id="pills-tabContent">
+
+                    <!-- 1. VALORANT DIVISION -->
+                    <div class="tab-pane fade show active" id="val-content" role="tabpanel">
+                        <div class="about-card mb-4 text-start">
+                            <h4 class="text-danger mb-2"><i class="bi bi-award-fill me-2"></i>Division Achievements</h4>
+                            <p class="mb-0 text-secondary">• <strong>Champion</strong> - UTAR Inter-Varsity Valorant Cup
+                                2026</p>
+                            <p class="mb-0 text-secondary">• <strong>1st Runner-Up</strong> - Malaysia Campus
+                                Championship
+                            </p>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-danger mb-2">Team Captain</span>
+                                    <div class="player-role-icon"><i class="bi bi-bullseye"></i></div>
+                                    <h3>REDX VORTEX</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Duelist</p>
+                                    <p class="text-secondary small mb-2">Signature: Jett / Reyna</p>
+                                    <p class="small text-secondary mb-0">CS Student | Year 2</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-shield-check"></i></div>
+                                    <h3>REDX CYPHER</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Sentinel</p>
+                                    <p class="text-secondary small mb-2">Signature: Killjoy / Cypher</p>
+                                    <p class="small text-secondary mb-0">IT Student | Year 3</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-eye"></i></div>
+                                    <h3>REDX SHADOW</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Initiator</p>
+                                    <p class="text-secondary small mb-2">Signature: Sova / Fade</p>
+                                    <p class="small text-secondary mb-0">SE Student | Year 1</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-cloud-haze2"></i></div>
+                                    <h3>REDX VIPER</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Controller</p>
+                                    <p class="text-secondary small mb-2">Signature: Omen / Viper</p>
+                                    <p class="small text-secondary mb-0">AI Student | Year 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. MOBILE LEGENDS DIVISION -->
+                    <div class="tab-pane fade" id="mlbb-content" role="tabpanel">
+                        <div class="about-card mb-4 text-start">
+                            <h4 class="text-danger mb-2"><i class="bi bi-award-fill me-2"></i>Division Achievements</h4>
+                            <p class="mb-0 text-secondary">• <strong>Champion</strong> - Perak State Youth MLBB Showdown
+                                2026</p>
+                            <p class="mb-0 text-secondary">• <strong>Top 4</strong> - UniPin Collegiate Series Malaysia
+                            </p>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-danger mb-2">Team Captain</span>
+                                    <div class="player-role-icon"><i class="bi bi-lightning"></i></div>
+                                    <h3>REDX BLAZE</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Jungler</p>
+                                    <p class="text-secondary small mb-2">Signature: Fanny / Ling</p>
+                                    <p class="small text-secondary mb-0">Finance | Year 2</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-shield"></i></div>
+                                    <h3>REDX TITAN</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Tank / Roamer</p>
+                                    <p class="text-secondary small mb-2">Signature: Tigreal / Khufra</p>
+                                    <p class="small text-secondary mb-0">CS Student | Year 3</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-crosshair2"></i></div>
+                                    <h3>REDX AURA</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Gold Laner</p>
+                                    <p class="text-secondary small mb-2">Signature: Beatrix / Brody</p>
+                                    <p class="small text-secondary mb-0">Digital Animation | Year 1</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-magic"></i></div>
+                                    <h3>REDX NOVA</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Mid Laner</p>
+                                    <p class="text-secondary small mb-2">Signature: Pharsa / Valentina</p>
+                                    <p class="small text-secondary mb-0">Game Tech | Year 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. LEAGUE OF LEGENDS DIVISION -->
+                    <div class="tab-pane fade" id="lol-content" role="tabpanel">
+                        <div class="about-card mb-4 text-start">
+                            <h4 class="text-danger mb-2"><i class="bi bi-award-fill me-2"></i>Division Achievements</h4>
+                            <p class="mb-0 text-secondary">• <strong>Quarter-Finalist</strong> - ASEAN Collegiate Rift
+                                Invitational 2025</p>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-danger mb-2">Team Captain</span>
+                                    <div class="player-role-icon"><i class="bi bi-stars"></i></div>
+                                    <h3>REDX FAKER_MY</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Mid Lane</p>
+                                    <p class="text-secondary small mb-2">Signature: Azir / Ahri</p>
+                                    <p class="small text-secondary mb-0">IT Student | Year 3</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-shield-fill"></i></div>
+                                    <h3>REDX COLOSSUS</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Top Lane</p>
+                                    <p class="text-secondary small mb-2">Signature: Ornn / Aatrox</p>
+                                    <p class="small text-secondary mb-0">SE Student | Year 2</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-arrow-through-heart"></i></div>
+                                    <h3>REDX BULLET</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: ADC</p>
+                                    <p class="text-secondary small mb-2">Signature: Kai'Sa / Jinx</p>
+                                    <p class="small text-secondary mb-0">Marketing | Year 1</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-heart-pulse"></i></div>
+                                    <h3>REDX LOTUS</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Support</p>
+                                    <p class="text-secondary small mb-2">Signature: Thresh / Nami</p>
+                                    <p class="small text-secondary mb-0">CS Student | Year 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. PUBG MOBILE DIVISION -->
+                    <div class="tab-pane fade" id="pubg-content" role="tabpanel">
+                        <div class="about-card mb-4 text-start">
+                            <h4 class="text-danger mb-2"><i class="bi bi-award-fill me-2"></i>Division Achievements</h4>
+                            <p class="mb-0 text-secondary">• <strong>Champion</strong> - UTAR Perak Battlegrounds 2026
+                            </p>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-danger mb-2">Team Captain / IGL</span>
+                                    <div class="player-role-icon"><i class="bi bi-compass"></i></div>
+                                    <h3>REDX REAPER</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Scout & IGL</p>
+                                    <p class="text-secondary small mb-2">Specialty: Tactical Shotcaller</p>
+                                    <p class="small text-secondary mb-0">Business Admin | Year 2</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-crosshair"></i></div>
+                                    <h3>REDX SNIPEX</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Sniper Specialist</p>
+                                    <p class="text-secondary small mb-2">Specialty: Long Range DMR</p>
+                                    <p class="small text-secondary mb-0">CS Student | Year 3</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-fire"></i></div>
+                                    <h3>REDX RUSHER</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Entry Fragger</p>
+                                    <p class="text-secondary small mb-2">Specialty: Close Combat Assault</p>
+                                    <p class="small text-secondary mb-0">AI Student | Year 1</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <div class="about-card text-center h-100 p-4">
+                                    <span class="badge bg-secondary mb-2">Player</span>
+                                    <div class="player-role-icon"><i class="bi bi-bandaid"></i></div>
+                                    <h3>REDX MEDIC</h3>
+                                    <p class="text-danger fw-bold mb-1">Role: Support / Cover</p>
+                                    <p class="text-secondary small mb-2">Specialty: Utility & Flanking</p>
+                                    <p class="small text-secondary mb-0">IT Student | Year 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+            <div class="container text-center">
+                <h3>RED X</h3>
+                <p>Student Esports Club</p>
+                <p class="copyright">
+                    © 2026 Red X Student Esports Club. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+        <!-- Bootstrap & jQuery -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Committee | Red X Student Esports Club</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Teko:wght@600;700&display=swap');
+    </style>
+</head>
+
+<body>
+    <div id="member2_committee">
+        <!-- ================= NAVBAR ================= -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/icon.png" alt="Red X Logo" class="navbar-logo">
+                    <span class="brand-name">
+                        RED X
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <!-- HOME -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <!-- ABOUT US -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+
+                        <!-- CLUB DROPDOWN (ACTIVE) -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                                Club
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item active" href="committee.html">Committee</a></li>
+                                <li><a class="dropdown-item" href="team.html">Team</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- ESPORTS DROPDOWN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Esports
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="achievement.html">Achievement</a></li>
+                                <li><a class="dropdown-item" href="event.html">Events</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- COMMUNITY DROPDOWN -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Community
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="registration.html">Registration</a></li>
+                                <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- THEME BUTTON -->
+                        <li class="nav-item ms-lg-3">
+                            <button id="themeButton" class="btn btn-outline-danger">
+                                <i class="bi bi-sun-fill"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ================= HERO ================= -->
+        <section class="about-hero section-padding" style="padding-top: 120px;">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-label">LEADERSHIP</p>
+                    <h1>EXECUTIVE COMMITTEE</h1>
+                    <p>Meet the student administrative committee powering Red X Student Esports Club.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTROLS ================= -->
+        <section class="section-padding pt-0">
+            <div class="container">
+
+                <div class="about-card mb-4 text-start">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-7">
+                            <div class="d-flex flex-wrap gap-2" id="filterButtons">
+                                <button class="btn btn-danger btn-filter active" data-filter="all">All Roles</button>
+                                <button class="btn btn-outline-danger btn-filter"
+                                    data-filter="executive">Executive</button>
+                                <button class="btn btn-outline-danger btn-filter"
+                                    data-filter="operations">Operations</button>
+                                <button class="btn btn-outline-danger btn-filter" data-filter="media">Media &
+                                    Creative</button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="input-group">
+                                <span class="input-group-text bg-black text-danger border-secondary"><i
+                                        class="bi bi-search"></i></span>
+                                <input type="text" id="committeeSearchInput" class="form-control search-box-custom"
+                                    placeholder="Search by name or position...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LocalStorage Favorite Status -->
+                    <div
+                        class="d-flex justify-content-between align-items-center border-top border-secondary mt-3 pt-3">
+                        <p class="mb-0 text-secondary">
+                            <i class="bi bi-star-fill text-warning me-1"></i> Starred Leaders (<span
+                                class="text-danger">localStorage</span>):
+                            <strong class="text-white" id="savedCount">0</strong>
+                        </p>
+                        <button class="btn btn-sm btn-outline-secondary" id="resetFavBtn">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Starred
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Committee Grid -->
+                <div class="row g-4" id="committeeCardsContainer">
+
+                    <!-- 1. President -->
+                    <div class="col-md-6 col-lg-4 committee-card-wrapper" data-category="executive" data-name="Alex Tan"
+                        data-role="President">
+                        <div class="about-card p-4 h-100 d-flex flex-column text-start">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="role-badge-icon"><i class="bi bi-shield-shaded"></i></div>
+                                <i class="bi bi-star fav-star-icon" data-id="comm_1" title="Star this leader"></i>
+                            </div>
+                            <span class="badge bg-danger align-self-start mb-2">Executive</span>
+                            <h3 class="mb-1">Alex Tan</h3>
+                            <p class="text-danger fw-bold mb-1">President</p>
+                            <p class="text-secondary small mb-3">Computer Science | Year 3</p>
+                            <p class="flex-grow-1">Leads club vision, campus partnerships, university coordination, and
+                                external sponsorships.</p>
+                            <hr class="border-secondary my-2">
+                            <p class="small text-secondary mb-0"><i
+                                    class="bi bi-envelope me-1"></i>alex.tan@redx.utar.edu.my</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Vice President -->
+                    <div class="col-md-6 col-lg-4 committee-card-wrapper" data-category="executive"
+                        data-name="Samantha Lee" data-role="Vice President">
+                        <div class="about-card p-4 h-100 d-flex flex-column text-start">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="role-badge-icon"><i class="bi bi-person-gear"></i></div>
+                                <i class="bi bi-star fav-star-icon" data-id="comm_2" title="Star this leader"></i>
+                            </div>
+                            <span class="badge bg-danger align-self-start mb-2">Executive</span>
+                            <h3 class="mb-1">Samantha Lee</h3>
+                            <p class="text-danger fw-bold mb-1">Vice President</p>
+                            <p class="text-secondary small mb-3">Software Engineering | Year 2</p>
+                            <p class="flex-grow-1">Supervises internal team operations, practice sessions, and
+                                inter-faculty
+                                esports scrimmages.</p>
+                            <hr class="border-secondary my-2">
+                            <p class="small text-secondary mb-0"><i
+                                    class="bi bi-envelope me-1"></i>samantha.lee@redx.utar.edu.my</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Secretary -->
+                    <div class="col-md-6 col-lg-4 committee-card-wrapper" data-category="executive"
+                        data-name="Bryan Wong" data-role="Secretary">
+                        <div class="about-card p-4 h-100 d-flex flex-column text-start">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="role-badge-icon"><i class="bi bi-file-earmark-text"></i></div>
+                                <i class="bi bi-star fav-star-icon" data-id="comm_3" title="Star this leader"></i>
+                            </div>
+                            <span class="badge bg-danger align-self-start mb-2">Executive</span>
+                            <h3 class="mb-1">Bryan Wong</h3>
+                            <p class="text-danger fw-bold mb-1">Secretary</p>
+                            <p class="text-secondary small mb-3">Information Systems | Year 2</p>
+                            <p class="flex-grow-1">Oversees documentation, meeting logs, official registration records,
+                                and
+                                club administration.</p>
+                            <hr class="border-secondary my-2">
+                            <p class="small text-secondary mb-0"><i
+                                    class="bi bi-envelope me-1"></i>bryan.wong@redx.utar.edu.my</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Treasurer -->
+                    <div class="col-md-6 col-lg-4 committee-card-wrapper" data-category="executive"
+                        data-name="Chloe Low" data-role="Treasurer">
+                        <div class="about-card p-4 h-100 d-flex flex-column text-start">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="role-badge-icon"><i class="bi bi-wallet2"></i></div>
+                                <i class="bi bi-star fav-star-icon" data-id="comm_4" title="Star this leader"></i>
+                            </div>
+                            <span class="badge bg-danger align-self-start mb-2">Executive</span>
+                            <h3 class="mb-1">Chloe Low</h3>
+                            <p class="text-danger fw-bold mb-1">Treasurer</p>
+                            <p class="text-secondary small mb-3">Accounting & Finance | Year 3</p>
+                            <p class="flex-grow-1">Manages tournament budgets, sponsor fundings, equipment acquisition,
+                                and
+                                prize pool allocations.</p>
+                            <hr class="border-secondary my-2">
+                            <p class="small text-secondary mb-0"><i
+                                    class="bi bi-envelope me-1"></i>chloe.low@redx.utar.edu.my</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Tournament Manager -->
+                    <div class="col-md-6 col-lg-4 committee-card-wrapper" data-category="operations"
+                        data-name="Marcus Yap" data-role="Tournament Manager">
+                        <div class="about-card p-4 h-100 d-flex flex-column text-start">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="role-badge-icon"><i class="bi bi-controller"></i></div>
+                                <i class="bi bi-star fav-star-icon" data-id="comm_5" title="Star this leader"></i>
+                            </div>
+                            <span class="badge bg-danger align-self-start mb-2">Operations</span>
+                            <h3 class="mb-1">Marcus Yap</h3>
+                            <p class="text-danger fw-bold mb-1">Tournament Manager</p>
+                            <p class="text-secondary small mb-3">Game Development | Year 3</p>
+                            <p class="flex-grow-1">Formulates competitive rulebooks, bracket trees, anti-cheat
+                                inspections,
+                                and referee management.</p>
+                            <hr class="border-secondary my-2">
+                            <p class="small text-secondary mb-0"><i
+                                    class="bi bi-envelope me-1"></i>marcus.yap@redx.utar.edu.my</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Media Team Lead -->
+                    <div class="col-md-6 col-lg-4 committee-card-wrapper" data-category="media" data-name="Elena Goh"
+                        data-role="Media Team Lead">
+                        <div class="about-card p-4 h-100 d-flex flex-column text-start">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="role-badge-icon"><i class="bi bi-camera-reels"></i></div>
+                                <i class="bi bi-star fav-star-icon" data-id="comm_6" title="Star this leader"></i>
+                            </div>
+                            <span class="badge bg-danger align-self-start mb-2">Media & Creative</span>
+                            <h3 class="mb-1">Elena Goh</h3>
+                            <p class="text-danger fw-bold mb-1">Media Team Lead</p>
+                            <p class="text-secondary small mb-3">Digital Animation | Year 2</p>
+                            <p class="flex-grow-1">Directs live match broadcasting overlays, event photos, video
+                                highlight
+                                reels, and social media branding.</p>
+                            <hr class="border-secondary my-2">
+                            <p class="small text-secondary mb-0"><i
+                                    class="bi bi-envelope me-1"></i>elena.goh@redx.utar.edu.my</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- No Match Message -->
+                <div id="noMatchMsg" class="text-center py-5 d-none">
+                    <i class="bi bi-emoji-neutral text-danger fs-1"></i>
+                    <h4 class="mt-3">No committee member found</h4>
+                    <p class="text-secondary">Try searching by another name or title.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+            <div class="container text-center">
+                <h3>RED X</h3>
+                <p>Student Esports Club</p>
+                <p class="copyright">
+                    © 2026 Red X Student Esports Club. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+        <!-- Bootstrap & jQuery -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="script.js"></script>
+
+    </div>
+</body>
+
+</html>
